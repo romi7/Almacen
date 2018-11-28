@@ -41,6 +41,36 @@ and open the template in the editor.
                 <div class="col-8"></div>
                 <button class="cols-2" id="CrearPedido" class="btn btn-primary btn-block">Crear pedido</button>
                 </div>
+            <br>
+            
+            
+            <table border="1" width="500">
+                <tr>
+                    <td>id_producto</td>
+                    <td>nombre</td>
+                    <td>cantidad</td>
+                    <td>precio</td> 
+                </tr>
+        <?php
+      include ('conexion.php');
+      $mysqli = conectaBBDD();
+      
+        $sql= $mysqli ->query("SELECT * FROM productos");
+        while($res= mysqli_fetch_array($sql)){
+        ?>
+                    <tr>
+                    <td><?php echo $res['id_producto']?></td> 
+                    <td><?php echo $res['nombre']?></td>
+                    <td><?php echo $res['cantidad']?></td>
+                    <td><?php echo $res['precio']?></td>
+                    </tr>
+                  
+      
+         <?php
+        }
+         ?>
+                
+            </table>
             
             
             
@@ -52,7 +82,10 @@ and open the template in the editor.
                 <input class="col-2" id ="Cantidad" class="form-control" type="text" placeholder="Cantidad" required="required">
                 <div class="col-10"></div>
                 <button class="cols-2" id="Añadir" class="btn btn-primary btn-block">Añadir</button>
-                
+               
+                 <div class="col-8"></div>
+                 
+               
             </div>
             
             
@@ -100,6 +133,20 @@ and open the template in the editor.
                 
             });
         });
+        
+        
+         
+        $('#Anadir').click(function(){
+            //leo el contenido de las cajas de nombre y contraseña
+            var id_producto = $('#CodigoProducto2').val();
+            var cantidad = $('#Cantidad').val();
+            
+  
+            
+           
+        });
+        
+        
 
     
     

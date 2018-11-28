@@ -21,17 +21,69 @@ and open the template in the editor.
                   <button  id="botonPedido" >Pedidos</button> 
                   </div>
                 <div class="col-10"   style="background-color: #bd2130" ><h1 class="text-center" >Pedidos</h1></div>
-    
-    
         </div>
+            <br>
+            <br>
+            <br>
+            <br>
+            <br>
+            
+            
+            <div class="row">
+                <input class="col-2" id ="CodigoProducto" class="form-control" type="text" placeholder="Codigo Pedido" required="required">
+                <button class="cols-1" id="Buscar" class="btn btn-primary btn-block">Buscar</button>
+                  
+     
+            </div>
+            
+            
+             <table border="1" width="500">
+                <tr>
+                    <td>id_pedido</td>
+                    <td>contenido</td>
+                    <td>estado</td>                    
+                </tr>
+        <?php
+      include ('conexion.php');
+      $mysqli = conectaBBDD();
+      
+        $sql= $mysqli ->query("SELECT * FROM pedidos");
+        while($res= mysqli_fetch_array($sql)){
+        ?>
+                    <tr>
+                    <td><?php echo $res['id_pedido']?></td> 
+                    <td><?php echo $res['contenido']?></td>
+                    <td><?php echo $res['estado']?></td>                  
+                    </tr>
+                  
+      
+         <?php
+        }
+         ?>
+                
+            </table>
             
             
             
             <div class="row">
-                <input class="col-2" id ="CodigoProducto" class="form-control" type="text" placeholder="Buscar Producto" required="required">
-                <button class="cols-4" id="Buscar" class="btn btn-primary btn-block">Buscar</button>
-                <div class="col-8"></div>
-            </div>
+              <div class="col-9"></div>
+              <input class="col-2" id ="CodigoProducto" class="form-control" type="text" placeholder="Codigo de Pedido" required="required">
+              <button class="cols-1" id="Buscar" class="btn btn-primary btn-block">Enviado</button>   
+                
+              <div class="col-9"></div> 
+              <div class="col-9"></div>
+              <input class="col-2" id ="CodigoProducto" class="form-control" type="text" placeholder="Codigo de Pedido" required="required">
+              <button class="cols-1" id="Buscar" class="btn btn-primary btn-block">Anulado</button>
+            
+              </div>
+            
+            
+            
+            
+            
+            
+           
+            
     
     
     </body>
@@ -55,3 +107,4 @@ and open the template in the editor.
     
     
 </html>
+
