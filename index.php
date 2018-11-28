@@ -89,6 +89,7 @@ and open the template in the editor.
             
             
             $('#primario').load("login.php",{
+                
                 cajaNombre : _cajaNombre,
                 cajaPassword : _cajaPassword
             });

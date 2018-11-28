@@ -4,6 +4,7 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
+
 <html>
     <head>
         <meta charset="UTF-8">
@@ -44,15 +45,15 @@ and open the template in the editor.
                     <td>estado</td>                    
                 </tr>
         <?php
-      include ('conexion.php');
+      include ('./misFunciones.php');
       $mysqli = conectaBBDD();
       
-        $sql= $mysqli ->query("SELECT * FROM pedidos");
+        $sql= $mysqli ->query("SELECT * FROM pedido");
         while($res= mysqli_fetch_array($sql)){
         ?>
                     <tr>
                     <td><?php echo $res['id_pedido']?></td> 
-                    <td><?php echo $res['contenido']?></td>
+                    <td><?php echo $res['contenido']?></td> 
                     <td><?php echo $res['estado']?></td>                  
                     </tr>
                   
@@ -82,7 +83,7 @@ and open the template in the editor.
             
             
             
-           
+        </div>  
             
     
     
@@ -90,6 +91,8 @@ and open the template in the editor.
     
     
      <script>
+         
+         
     
      $('#botonAlmacen').click(function(){
 

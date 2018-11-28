@@ -3,6 +3,6 @@
 $servidor = 'localhost';
 $bbdd = 'almacen';
 $usuario_mysql = 'root';
-$clave_mysql = '';
+$clave_mysql = 'root';
 
 

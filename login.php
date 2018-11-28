@@ -1,5 +1,5 @@
 <?php
-include('./misFunciones.php');
+require('./misFunciones.php');
 
 function limpiaPalabra($palabra){
     $palabra = trim($palabra, "'");

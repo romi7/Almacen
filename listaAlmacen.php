@@ -4,6 +4,7 @@ To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
+
 <html>
     <head>
         <meta charset="UTF-8">
@@ -17,18 +18,12 @@ and open the template in the editor.
         
         <div class="container" id="principal" style="background-color:#b1dfbb">
         
-        
-            
+         
             <div class="row">
                 
-                 <div class="col-2"  style="background-color:#007bff"  > 
-                
-                  <button  id="botonAlmacen">Almacen</button>
-                  <button  id="botonPedido" >Pedidos</button> 
-                  </div>
+                 
                 <div class="col-10"   style="background-color: #bd2130" ><h1 class="text-center" >Lista Almacen</h1></div>
-                
-               
+ 
             </div>
             <br>
             <br>
@@ -39,7 +34,7 @@ and open the template in the editor.
                 <input class="col-2" id ="CodigoProducto" class="form-control" type="text" placeholder="Buscar Producto" required="required">
                 <button class="cols-4" id="Buscar" class="btn btn-primary btn-block">Buscar</button>
                 <div class="col-8"></div>
-                <button class="cols-2" id="CrearPedido" class="btn btn-primary btn-block">Crear pedido</button>
+<!--                <button class="cols-2" id="CrearPedido" class="btn btn-primary btn-block">Crear pedido</button>-->
                 </div>
             <br>
             
@@ -52,10 +47,10 @@ and open the template in the editor.
                     <td>precio</td> 
                 </tr>
         <?php
-      include ('conexion.php');
+      //include ('./misFunciones.php');
       $mysqli = conectaBBDD();
       
-        $sql= $mysqli ->query("SELECT * FROM productos");
+        $sql= $mysqli ->query("SELECT * FROM producto");
         while($res= mysqli_fetch_array($sql)){
         ?>
                     <tr>
@@ -74,7 +69,7 @@ and open the template in the editor.
             
             
             
-            <div id="hacerPedidos"  class="row">
+<!--            <div id="hacerPedidos"  class="row">
                 <div class="col-10"></div>
                 <input class="col-2" id ="CodigoProducto2" class="form-control" type="text" placeholder="Codigo Producto" required="required">
                 <div class="col-12"></div>
@@ -86,8 +81,41 @@ and open the template in the editor.
                  <div class="col-8"></div>
                  
                
-            </div>
+            </div>-->
+<div class="row">
+
+    <div class="col-10"> <h1 style="background-color: #007bff" class="text-center"  >Pedidos</h1> </div>
             
+</div>   
+            <table border="1" width="500">
+                <tr>
+                    <td>id_pedido</td>
+                    <td>contenido</td>
+                    <td>estado</td>                    
+                </tr>
+                
+                
+                
+                
+                
+        <?php
+      
+      
+        $sql= $mysqli ->query("SELECT * FROM pedido");
+        while($res= mysqli_fetch_array($sql)){
+        ?>
+                    <tr>
+                    <td><?php echo $res['id_pedido']?></td> 
+                    <td><?php echo $res['contenido']?></td> 
+                    <td><?php echo $res['estado']?></td>                  
+                    </tr>
+                  
+      
+         <?php
+        }
+         ?>
+                
+            </table>
             
                 
                 
@@ -123,13 +151,14 @@ and open the template in the editor.
  
         });
        
-        
+        $_sesion=
         
         
     
      $('#botonPedido').click(function(){
 
             $('#principal').load("colaPedidos.php",{
+                
                 
             });
         });
