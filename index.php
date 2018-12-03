@@ -73,9 +73,17 @@ and open the template in the editor.
            //$('#cajaNombre').hide(); 
        });
        
-       $('#botonRegristo').click(function(){
+       $('#botonRegristo').click(function(){ 
+            var _cajaUsu = $('#cajaUsu').val();
+            var _cajaPass = $('#cajaPass').val();
+            var _cajaCorreo = $('#cajaCorreo').val();
+            var _cajaCodigo = $('#cajaCodigo').val();
            
            $('#principal').load("regristo.php",{
+                cajaUsu : _cajaUsu,
+                cajaPass : _cajaPass,
+                cajaCorreo : _cajaCorreo,
+                cajaCodigo : _cajaCodigo
                
            });
        });
@@ -108,19 +116,19 @@ and open the template in the editor.
                 </div>
                 <div class="modal-body">
                   
-                    <input type="text" class="form-control"placeholder="Usuario" id="recipient-name">
+                    <input id="cajaUsu" type="text" class="form-control"placeholder="Usuario" id="recipient-name">
                     <br>
                   
-                    <input type="text" class="form-control" placeholder="correo electronico" id="recipient-name">
+                    <input id="cajaCorreo" type="text" class="form-control" placeholder="correo electronico" id="recipient-name">
                     <br>
                    
-                    <input type="text" class="form-control" placeholder="password" id="recipient-name"> 
+                    <input id="cajaPass" type="text" class="form-control" placeholder="password" id="recipient-name"> 
                     <br>
-                    <input type="text" class="form-control" placeholder="codigo de empleado" id="recipient-name">
+                    <input id="cajaCodigo" type="text" class="form-control" placeholder="codigo de empleado" id="recipient-name">
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
-                    <button type="button" class="btn btn-primary">Añadir</button>
+                    <button  id="botonRegistro"type="button" class="btn btn-primary">Añadir</button>
                 </div>
             </div>
         </div>

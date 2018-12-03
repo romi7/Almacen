@@ -52,10 +52,10 @@ and open the template in the editor.
                     <td>precio</td> 
                 </tr>
         <?php
-      include ('conexion.php');
-      $mysqli = conectaBBDD();
+//      include ('conexion.php');
+//      $mysqli = conectaBBDD();
       
-        $sql= $mysqli ->query("SELECT * FROM productos");
+        $sql= $mysqli ->query("SELECT * FROM producto");
         while($res= mysqli_fetch_array($sql)){
         ?>
                     <tr>

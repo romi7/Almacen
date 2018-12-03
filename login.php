@@ -49,10 +49,11 @@ $cajaNombre = trim($cajaNombre, "'");
       require  'listaAlmacen.php';
      
   }
-//  else{
-//      //muestro una pantalla de error 
-//      require 'error.php';
-//  }
+
+  else{
+      //muestro una pantalla de error 
+      require 'error.php';
+  }
 
 
 /* 

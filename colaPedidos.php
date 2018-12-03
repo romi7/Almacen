@@ -44,10 +44,10 @@ and open the template in the editor.
                     <td>estado</td>                    
                 </tr>
         <?php
-      include ('conexion.php');
+      include ('misFunciones.php');
       $mysqli = conectaBBDD();
       
-        $sql= $mysqli ->query("SELECT * FROM pedidos");
+        $sql= $mysqli ->query("SELECT * FROM pedido");
         while($res= mysqli_fetch_array($sql)){
         ?>
                     <tr>
