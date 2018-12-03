@@ -31,14 +31,18 @@ and open the template in the editor.
             <br>
             <br>
                 <div class="row">
+                     <div class="col-4"></div>
                 <input class="col-2" id ="CodigoProducto" class="form-control" type="text" placeholder="Buscar Producto" required="required">
-                <button class="cols-4" id="Buscar" class="btn btn-primary btn-block">Buscar</button>
-                <div class="col-8"></div>
+                <button class="col-1" id="Buscar" class="btn btn-primary btn-block">Buscar</button>
+                <div class="col-4"></div>
 <!--                <button class="cols-2" id="CrearPedido" class="btn btn-primary btn-block">Crear pedido</button>-->
                 </div>
             <br>
             
             
+             <div class="row">
+                 <div class="col-3"></div>
+                 <div class="col-4">
             <table border="1" width="500">
                 <tr>
                     <td>id_producto</td>
@@ -66,95 +70,103 @@ and open the template in the editor.
          ?>
                 
             </table>
-            
-            
-            
-<!--            <div id="hacerPedidos"  class="row">
-                <div class="col-10"></div>
-                <input class="col-2" id ="CodigoProducto2" class="form-control" type="text" placeholder="Codigo Producto" required="required">
-                <div class="col-12"></div>
-                <div class="col-10"></div>
-                <input class="col-2" id ="Cantidad" class="form-control" type="text" placeholder="Cantidad" required="required">
-                <div class="col-10"></div>
-                <button class="cols-2" id="Añadir" class="btn btn-primary btn-block">Añadir</button>
-               
-                 <div class="col-8"></div>
+            </div>
                  
-               
-            </div>-->
+            </div>
+            <br>
+            
+
+            <div class="row">
+                 
+                     <div class="col-4"></div>
+                <input class="col-1" id ="Codigo" class="form-control" type="text" placeholder="ID" required="required">
+                <input class="col-1" id ="Cantidad" class="form-control" type="text" placeholder="Cantidad" required="required">
+                <button class="col-1" id="Pedido" class="btn btn-primary btn-block">Añadir</button>
+                <div class="col-4"></div>
+
+                </div>
+            
+            
+     
 <div class="row">
 
     <div class="col-10"> <h1 style="background-color: #007bff" class="text-center"  >Pedidos</h1> </div>
             
 </div>   
+            
+       <div class="row">
+                 <div class="col-3"></div>
+                 <div class="col-4">     
+            
+            
             <table border="1" width="500">
                 <tr>
                     <td>id_pedido</td>
-                    <td>contenido</td>
-                    <td>estado</td>                    
+                     <td>estado</td>
+                    <td>articulo</td>
+                    <td>cantidad</td>
+                  
                 </tr>
-                
-                
-                
-                
-                
+       
         <?php
-      
-      
+     
         $sql= $mysqli ->query("SELECT * FROM pedido");
         while($res= mysqli_fetch_array($sql)){
         ?>
                     <tr>
                     <td><?php echo $res['id_pedido']?></td> 
-                    <td><?php echo $res['contenido']?></td> 
-                    <td><?php echo $res['estado']?></td>                  
+                    <td><?php echo $res['estado']?></td> 
+                    <td><?php echo $res['articulo']?></td>
+                    <td><?php echo $res['cantidad']?></td>
+                    
                     </tr>
-                  
-      
+   
          <?php
         }
          ?>
                 
             </table>
-            
+     
+                 </div>
+                 </div>
+        
                 
+    
+           <br>
+            
+
+            <div class="row">
+                 
+                 <div class="col-5"></div>
+                <input class="col-1" id ="CodigoProducto1" class="form-control" type="text" placeholder="ID" required="required">              
+                <button class="col-1" id="Buscar" class="btn btn-primary btn-block">Realizar</button>
+                <div class="col-5"></div>
                 
-            
-            
-         
-             
-    
-    
-    
-        
-        
-   
-        
-        
+                 <div class="col-12"></div>
+                  <div class="col-5"></div>
+                <input class="col-1" id ="CodigoProducto2" class="form-control" type="text" placeholder="ID" required="required">              
+                <button class="col-1" id="Buscar" class="btn btn-primary btn-block">Anular</button>
+                <div class="col-5"></div>
+
                 </div>
     
-    
-    
+        </div>
     </body>
+    
+<!--    <?php
+     function pedido(){
+        
+         
+         $sql= $mysqli ->query("INSERT INTO pedido(id_pedido,estado,articulo,cantidad)VALUES('')");
+     }
+     ?>
+    -->
     <script src="js/jquery-3.3.1.min.js" type="text/javascript"></script>
     <script src="js/bootstrap.min.js" type="text/javascript"></script>
     <script src="//cdnjs.cloudflare.com/ajax/libs/jquery-form-validator/2.3.26/jquery.form-validator.min.js"></script>
     <script>
         
-       $('#hacerPedidos').hide(); 
-       
-       
-        $('#CrearPedido').click(function(){
-            $('#CrearPedido').hide(); 
-            $('#hacerPedidos').show();
-            
- 
-        });
-       
-        $_sesion=
-        
-        
-    
+  
      $('#botonPedido').click(function(){
 
             $('#principal').load("colaPedidos.php",{
@@ -164,16 +176,13 @@ and open the template in the editor.
         });
         
         
+        
+     
+     
+        
+        
          
-        $('#Anadir').click(function(){
-            //leo el contenido de las cajas de nombre y contraseña
-            var id_producto = $('#CodigoProducto2').val();
-            var cantidad = $('#Cantidad').val();
-            
-  
-            
-           
-        });
+        
         
         
 
