@@ -1,5 +1,5 @@
 <?php
-include('./misFunciones.php');
+require('./misFunciones.php');
 
 function limpiaPalabra($palabra){
     $palabra = trim($palabra, "'");
@@ -20,7 +20,14 @@ $mysqli = conectaBBDD();
   
   $resultadoQuery = $mysqli -> query("SELECT * FROM `trabajador` WHERE `usuario` = '$cajaNombre' AND contraseña = $cajaPassword");
   
+  //si la consulta existe
+  if($resultadoQuery){
+
   $numUsuarios = $resultadoQuery -> num_rows;
+  }
+  else{
+      $numUsuarios = -1;
+  }
   
   
 //filtro muy básico para evitar inyeccion SQL 
@@ -54,6 +61,7 @@ $cajaNombre = trim($cajaNombre, "'");
       //muestro una pantalla de error 
       require 'error.php';
   }
+  
 
 
 /* 

@@ -5,3 +5,9 @@ function conectaBBDD(){
     $mysqli -> query("SET NAMES utf8");
     return $mysqli;
 }
+
+
+
+
+
+
