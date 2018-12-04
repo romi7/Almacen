@@ -16,13 +16,13 @@ and open the template in the editor.
     <body >
         
         
-        <div class="container" id="principal" style="background-color:#b1dfbb">
+        <div class="container" id="principal"  style="background-color: #cccccc">
         
          
             <div class="row">
                 
                  
-                <div class="col-10"   style="background-color: #bd2130" ><h1 class="text-center" >Lista Almacen</h1></div>
+                <div class="col-12"   style="background-color: #e4606d" ><h1 class="text-center" >Lista Almacen</h1></div>
  
             </div>
             <br>
@@ -34,6 +34,7 @@ and open the template in the editor.
                      <div class="col-4"></div>
                 <input class="col-2" id ="CodigoProducto" class="form-control" type="text" placeholder="Buscar Producto" required="required">
                 <button class="col-1" id="Buscar" class="btn btn-primary btn-block">Buscar</button>
+                <button class="col-1" id="Refrescar" class="btn btn-primary btn-block">Refrescar</button>
                 <div class="col-4"></div>
 <!--                <button class="cols-2" id="CrearPedido" class="btn btn-primary btn-block">Crear pedido</button>-->
                 </div>
@@ -44,11 +45,11 @@ and open the template in the editor.
                  <div class="col-3"></div>
                  <div class="col-4">
             <table border="1" width="500">
-                <tr>
-                    <td>id_producto</td>
-                    <td>nombre</td>
-                    <td>cantidad</td>
-                    <td>precio</td> 
+                <tr style="border: 3px solid" >
+                    <td style="color: #007bff">id_producto</td>
+                    <td style="color: #007bff">nombre</td>
+                    <td style="color: #007bff">cantidad</td>
+                    <td style="color: #007bff">precio</td> 
                 </tr>
         <?php
       //include ('./misFunciones.php');
@@ -86,11 +87,16 @@ and open the template in the editor.
 
                 </div>
             
-            
+            <br>
+             <br>
+              <br>
+               <br>
+                <br>
+                 <br>
      
 <div class="row">
 
-    <div class="col-10"> <h1 style="background-color: #007bff" class="text-center"  >Pedidos</h1> </div>
+    <div class="col-12"> <h1 style="background-color: #34ce57" class="text-center"  >Pedidos</h1> </div>
             
 </div>   
             
@@ -100,11 +106,11 @@ and open the template in the editor.
             
             
             <table border="1" width="500">
-                <tr>
-                    <td>id_pedido</td>
-                     <td>estado</td>
-                    <td>articulo</td>
-                    <td>cantidad</td>
+                <tr style="border: 3px solid">
+                    <td style="color: #007bff">id_pedido</td>
+                    <td style="color: #007bff">estado</td>
+                    <td style="color: #007bff">articulo</td>
+                    <td style="color: #007bff">cantidad</td>
                   
                 </tr>
        
@@ -141,14 +147,19 @@ and open the template in the editor.
                 <input class="col-1" id ="CodigoProducto1" class="form-control" type="text" placeholder="ID" required="required">              
                 <button class="col-1" id="Buscar" class="btn btn-primary btn-block">Realizar</button>
                 <div class="col-5"></div>
-                
+            
                  <div class="col-12"></div>
+                 <br>
+                 
                   <div class="col-5"></div>
                 <input class="col-1" id ="CodigoProducto2" class="form-control" type="text" placeholder="ID" required="required">              
                 <button class="col-1" id="Buscar" class="btn btn-primary btn-block">Anular</button>
                 <div class="col-5"></div>
+                
 
                 </div>
+           <br>
+           <br>
     
         </div>
     </body>
