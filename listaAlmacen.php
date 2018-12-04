@@ -13,10 +13,10 @@ and open the template in the editor.
     </head>
 
     
-    <body >
+    <body id="body">
         
         
-        <div class="container" id="principal"  style="background-color: #cccccc">
+        <div class="container" id="principal"  style="background-color: #d1ecf1">
         
          
             <div class="row">
@@ -34,7 +34,7 @@ and open the template in the editor.
                      <div class="col-4"></div>
                 <input class="col-2" id ="CodigoProducto" class="form-control" type="text" placeholder="Buscar Producto" required="required">
                 <button class="col-1" id="Buscar" class="btn btn-primary btn-block">Buscar</button>
-                <button class="col-1" id="Refrescar" class="btn btn-primary btn-block">Refrescar</button>
+                <button class="col-1" class="btn btn-primary btn-block" onclick="recargar();">Refrescar</button>
                 <div class="col-4"></div>
 <!--                <button class="cols-2" id="CrearPedido" class="btn btn-primary btn-block">Crear pedido</button>-->
                 </div>
@@ -52,7 +52,7 @@ and open the template in the editor.
                     <td style="color: #007bff">precio</td> 
                 </tr>
         <?php
-      //include ('./misFunciones.php');
+      
       $mysqli = conectaBBDD();
       
         $sql= $mysqli ->query("SELECT * FROM producto");
@@ -79,10 +79,9 @@ and open the template in the editor.
 
             <div class="row">
                  
-                     <div class="col-4"></div>
-                <input class="col-1" id ="Codigo" class="form-control" type="text" placeholder="ID" required="required">
-                <input class="col-1" id ="Cantidad" class="form-control" type="text" placeholder="Cantidad" required="required">
-                <button class="col-1" id="Pedido" class="btn btn-primary btn-block">Añadir</button>
+                     <div class="col-5"></div>
+          
+                <button class="col-1" id="Pedido" class="btn btn-primary btn-block" data-toggle="modal" data-target="#btnAnyadir">Añadir</button>
                 <div class="col-4"></div>
 
                 </div>
@@ -134,6 +133,7 @@ and open the template in the editor.
             </table>
      
                  </div>
+              
                  </div>
         
                 
@@ -142,8 +142,11 @@ and open the template in the editor.
             
 
             <div class="row">
+                
                  
-                 <div class="col-5"></div>
+                
+                 
+                  <div class="col-5"></div>
                 <input class="col-1" id ="CodigoProducto1" class="form-control" type="text" placeholder="ID" required="required">              
                 <button class="col-1" id="Buscar" class="btn btn-primary btn-block">Realizar</button>
                 <div class="col-5"></div>
@@ -154,7 +157,10 @@ and open the template in the editor.
                   <div class="col-5"></div>
                 <input class="col-1" id ="CodigoProducto2" class="form-control" type="text" placeholder="ID" required="required">              
                 <button class="col-1" id="Buscar" class="btn btn-primary btn-block">Anular</button>
+                
                 <div class="col-5"></div>
+                
+         
                 
 
                 </div>
@@ -178,16 +184,11 @@ and open the template in the editor.
     <script>
         
   
-     $('#botonPedido').click(function(){
-
-            $('#principal').load("colaPedidos.php",{
-                
-                
-            });
-        });
+     
         
-        
-        
+      function recargar(){
+           $('#body').load("listaAlmacen.php");
+       }
      
      
         
@@ -200,4 +201,30 @@ and open the template in the editor.
     
     
     </script>
+    <div class="modal fade" id="btnAnyadir" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 class="modal-title" style="color:#007bff;" id="exampleModalLabel">Añadir pedido</h3>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                  
+                    <input id="cajaUsu" type="text" class="form-control"placeholder="Id_articulo" id="recipient-name">
+                    <br>
+                  
+                    <input id="cajaCorreo" type="text" class="form-control" placeholder="cantidad" id="recipient-name">
+                    <br>
+                   
+                    
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    <button  id="botonRegistro"type="button" class="btn btn-primary">Añadir</button>
+                </div>
+            </div>
+        </div>
+    </div>
 </html>
